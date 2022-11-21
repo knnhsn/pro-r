@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const ejs = require('ejs');
 const { kStringMaxLength } = require('buffer');
-app.set('view engine', 'ejs');
+/*app.set('view engine', 'ejs');*/
 
 
 
@@ -33,14 +33,17 @@ app.post("/", function(req, res) {
     res.redirect("/");
 })
 
+app.get("/", function(req, res) {
+    res.sendFile(__dirname + "/index.html");
+    })
 
-app.get('/', (req, res) => {
+/*app.get('/', (req, res) => {
     Item.find({}, function(err, items) {
         res.render('index', {
             itemList: items
         })
     })
-})
+})*/
 
 
 app.listen(3000, function(){
