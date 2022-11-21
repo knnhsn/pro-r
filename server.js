@@ -2,6 +2,9 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const ejs = require('ejs');
+const { kStringMaxLength } = require('buffer');
+app.set('view engine', 'ejs');
 
 
 
@@ -11,25 +14,35 @@ mongoose.connect("mongodb+srv://knnhsn-zxt726:Salam123@cluster0.hffkb7r.mongodb.
 
 const proxSchema = {
     title: String,
-    price: String
+    price: String,
+    about: String
 }
 
 const Item = mongoose.model("Item", proxSchema);
 
-app.get("/", function(req, res) {
-res.sendFile(__dirname + "/index.html");
-})
+
 
 
 app.post("/", function(req, res) {
     let newItem = new Item({
-        title: req.body.item,
-        price: req.body.price
+        title: req.body.title,
+        price: req.body.price,
+        about: req.body.about
     });
     newItem.save();
     res.redirect("/");
 })
 
-app.listen(3000, function(){
-    console.log("server is running, why are you running");
+
+app.get('/', (req, res) => {
+    Item.find({}, function(err, items) {
+        res.render('index', {
+            itemList: items
+        })
+    })
+})
+
+
+app.listen(4000, function(){
+    console.log("ok");
 })
