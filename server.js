@@ -6,6 +6,7 @@ const ejs = require('ejs');
 const { kStringMaxLength } = require('buffer');
 const { application } = require("express");
 const path = require("path");
+app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 
 
@@ -68,6 +69,6 @@ app.get('/addcategories', (req, res) => {
 })
 
 
-app.listen(80, function(){
+app.listen(3000, function(){
     console.log("ok");
 })
