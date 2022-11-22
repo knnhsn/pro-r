@@ -6,7 +6,7 @@ const ejs = require('ejs');
 const { kStringMaxLength } = require('buffer');
 const { application } = require("express");
 const path = require("path");
-app.set('views', path.join(__dirname, '/views'));
+
 app.set('view engine', 'ejs');
 
 
@@ -22,21 +22,13 @@ const proxSchema = {
     about: String
 }
 
-const proxCategory = {
-    category: String
-}
+
 
 const Item = mongoose.model("Item", proxSchema);
-const Category = mongoose.model("Category", proxCategory);
 
 
-app.post("/", function(req, res) {
-    let newCategory = new Category({
-        about: req.body.category
-    });
-    newCategory.save();
-    res.redirect("/addcategories");
-})
+
+
 
 app.post("/", function(req, res) {
     let newItem = new Item({
