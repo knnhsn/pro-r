@@ -47,13 +47,16 @@
   <div class="modal-dialog modal-fullscreen">
       <div class="modal-content">
           <div class="modal-header">
-              <h5 class="modal-title">Sushi Rolls</h5>
+           
+              <h5 class="modal-title">Rolls</h5>
+              
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <%itemList.forEach(items => {%>
             <div class="menu-box mx-2">
-            <div class="menu-box-text"><p1>California Roll</p1></div>
-            </div>
+            <div class="menu-box-text"><p1><%= items.title %></p1></div>
+            </div><%})%>
             
           </div>
           <div class="modal-footer">
