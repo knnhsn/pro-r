@@ -1,0 +1,22 @@
+.modal-header
+{
+background-color:orangered;
+}
+.modal-body
+{
+background-color: rgba(255, 68, 0, 0.738);
+}
+.modal-footer
+{
+background-color: orangered;
+}
+.menu-box-modal
+{
+    background-color:rgb(255, 255, 255); 
+    border-radius: 30px; 
+    margin-top: 15px; 
+    width: auto; 
+    height: auto; 
+    text-align: center; 
+    box-shadow:rgb(22, 5, 48) 3px 7px 40px;"
+}

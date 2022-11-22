@@ -1,0 +1,29 @@
+html,body {
+    background-color: rgb(255, 68, 0);
+}
+.mobile-nav {
+    background:rgb(255, 255, 255);
+    position: fixed;
+    bottom: 0;
+    height: 65px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    border-top-left-radius:40px; 
+    border-top-right-radius:40px;
+
+  }
+  .bloc-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .bloc-icon img {
+    width: 30px;
+  }
+  @media screen and (min-width: 600px) {
+    .mobile-nav {
+    display: none;
+    }
+  }
+  

@@ -1,0 +1,25 @@
+.menu-box
+{
+    background-color:rgb(255, 255, 255); 
+    border-radius: 30px; 
+    margin-top: 15px; 
+    width: auto; 
+    height: 50px; 
+    text-align: center; 
+    box-shadow:rgb(22, 5, 48) 3px 7px 40px;"
+}
+
+.menu-box-img 
+{
+    border-radius: 100px;
+    background-color: rgb(255, 255, 255);
+    margin-top: 5px;
+    margin-left: 10px;
+    width: 40px;
+    float: left;
+}
+
+.menu-box-text {
+    text-align:center;
+    font-size: 20px;
+} 

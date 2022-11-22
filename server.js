@@ -4,10 +4,13 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const ejs = require('ejs');
 const { kStringMaxLength } = require('buffer');
-/*app.set('view engine', 'ejs');*/
+const { application } = require("express");
+const path = require("path");
+app.set('view engine', 'ejs');
 
 
 
+app.use(express.static(__dirname + '/views'));
 app.use(bodyParser.urlencoded({extended:true}));
 
 mongoose.connect("mongodb+srv://knnhsn-zxt726:Salam123@cluster0.hffkb7r.mongodb.net/pro-r", {useNewUrlParser:true}, {useUnifiedTopology:true})
@@ -18,10 +21,21 @@ const proxSchema = {
     about: String
 }
 
+const proxCategory = {
+    category: String
+}
+
 const Item = mongoose.model("Item", proxSchema);
+const Category = mongoose.model("Category", proxCategory);
 
 
-
+app.post("/", function(req, res) {
+    let newCategory = new Category({
+        about: req.body.category
+    });
+    newCategory.save();
+    res.redirect("/addcategories");
+})
 
 app.post("/", function(req, res) {
     let newItem = new Item({
@@ -30,22 +44,30 @@ app.post("/", function(req, res) {
         about: req.body.about
     });
     newItem.save();
-    res.redirect("/");
+    res.redirect("/admin");
 })
 
-app.get("/", function(req, res) {
-    res.sendFile(__dirname + "/index.html");
-    })
+/*app.get("/", function(req, res) {
+    res.sendFile(__dirname + "/public/adddata.html");
+    })*/
 
-/*app.get('/', (req, res) => {
+app.get('/', (req, res) => {
     Item.find({}, function(err, items) {
-        res.render('index', {
+        res.render('pages/index', {
             itemList: items
         })
     })
-})*/
+})
+
+app.get('/admin', (req, res) => {
+    res.render('pages/admin')
+})
+
+app.get('/addcategories', (req, res) => {
+    res.render('pages/addcategories')
+})
 
 
-app.listen(80, function(){
+app.listen(3000, function(){
     console.log("ok");
 })
