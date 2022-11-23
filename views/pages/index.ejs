@@ -56,6 +56,7 @@
             <%itemList.forEach(items => {%>
             <div class="menu-box mx-2">
             <div class="menu-box-text"><p1><%= items.title %></p1></div>
+            <div><%= items.price %>₼</div>
             </div><%})%>
             
           </div>
@@ -86,17 +87,17 @@
   
 
         <nav class="mobile-nav">
-            <a href="#" class="bloc-icon">
+            <a href="#" class="bloc-icon">Home
                 <img src="../ressources/home.svg" alt="">
             </a>
-            <a href="#" class="bloc-icon">
+            <a href="#" class="bloc-icon">Fav
                 <img src="../ressources/heart.svg" alt="">
             </a>
             
-            <a href="#" class="bloc-icon">
+            <a href="#" class="bloc-icon">Mag
                 <img src="../ressources/magnifier.svg" alt="">
             </a>
-            <a href="#" class="bloc-icon">
+            <a href="#" class="bloc-icon">User
                 <img src="../ressources/user.svg" alt="">
             </a>
         </nav>
